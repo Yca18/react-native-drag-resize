@@ -23,7 +23,7 @@ export const AXIS_X = 'x';
 export const AXIS_Y = 'y';
 export const AXIS_ALL = 'all';
 
-const CONNECTOR_SIZE = 14;
+const CONNECTOR_SIZE = 24;
 const DEFAULT_Z_INDEX = 1;
 
 /**
