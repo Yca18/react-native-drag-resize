@@ -100,17 +100,52 @@ export class Connector extends Component {
       size,
     } = this.props;
 
+    const commonStyles = {
+      position: 'absolute',
+      left: x,
+      top: y,
+      width: size,
+      height: size,
+      borderRadius: 3,
+      borderTopWidth: 0,
+      borderRightWidth: 0,
+      borderBottomWidth: 0,
+      borderLeftWidth: 0,
+      borderColor: '#4cc38a',
+    }
+
+    switch(this.props.type){
+      case CONNECTOR_TOP_LEFT:
+        commonStyles.borderTopWidth = 5
+        commonStyles.borderLeftWidth = 5
+        break;
+      case CONNECTOR_TOP_RIGHT:
+        commonStyles.borderTopWidth = 5
+        commonStyles.borderRightWidth = 5
+        break;
+      case CONNECTOR_BOTTOM_RIGHT:
+        commonStyles.borderBottomWidth = 5
+        commonStyles.borderRightWidth = 5
+        break;
+      case CONNECTOR_BOTTOM_LEFT:
+        commonStyles.borderBottomWidth = 5
+        commonStyles.borderLeftWidth = 5
+        break;
+      case CONNECTOR_CENTER:
+        commonStyles.top = 20
+        commonStyles.left = 20
+        commonStyles.width = "95%"
+        commonStyles.height = "95%"
+        commonStyles.backgroundColor = 'rgba(0, 0, 0, 0)'
+        break;
+      default:
+        break;
+    }
+
     return (
       <View
         style={{
-          position: 'absolute',
-          left: x,
-          top: y,
-          width: size,
-          height: size,
-          borderWidth: 2,
-          borderColor: 'black',
-          backgroundColor: 'white'
+          ...commonStyles,
         }}
         {...this._panResponder.panHandlers}
       />
